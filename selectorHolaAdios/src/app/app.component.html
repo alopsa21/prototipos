@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<h2>Mis saludos</h2>
+<ul class="saludos">
+  <div *ngFor="let saludo of saludos" [class.selected]="saludo === selectedHero"> >
+  <input type = "radio"
+                 name = "radSize"   
+                 id = "sizeSmall"
+                 value = "hola"
+                 checked = {{saludo.seleccionado}} />
+          <label for = "sizeSmall">{{saludo.id}} - {{saludo.idioma}} - {{saludo.title}} - {{saludo.seleccionado}}</label>
+  </div>
+</ul>
