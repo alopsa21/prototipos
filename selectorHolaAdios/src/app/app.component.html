@@ -1,12 +1,15 @@
 <h1>{{title}}</h1>
-<h2>Mis saludos</h2>
+<div>
+  <label>Name</label>
+  <input type="text" name="name" [(ngModel)]="nombre">
+</div>
 <ul class="saludos">
-  <div *ngFor="let saludo of saludos" [class.selected]="saludo === selectedHero"> >
-  <input type = "radio"
-                 name = "radSize"   
-                 id = "sizeSmall"
-                 value = "hola"
-                 checked = {{saludo.seleccionado}} />
-          <label for = "sizeSmall">{{saludo.id}} - {{saludo.idioma}} - {{saludo.title}} - {{saludo.seleccionado}}</label>
+  <div *ngFor="let saludo of saludos">
+    <input type="radio" value="saludo" name="saludar" [checked]="saludo.seleccionado == true" (click)="onSelect(saludo)">
+    <label for="sizeSmall">{{saludo.id}} - {{saludo.idioma}} - {{saludo.title}} - {{saludo.seleccionado}}</label>
+
+  </div>
+  <div *ngIf="nombre">
+    <label for="sizeSmall">{{saludoSeleccionado.title}} {{nombre}}</label>
   </div>
 </ul>

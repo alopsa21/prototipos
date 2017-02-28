@@ -11,14 +11,19 @@ import { SaludoDataService } from './saludo-data.service';
 export class AppComponent implements OnInit {
   title = 'Elija una opción!';
   nombre = '';
+  saludoSeleccionado: Saludo;
   saludos: Saludo[];
 
   constructor(private saludoService: SaludoDataService) { }
 
-  getHeroes(): void {
+  getSaludos(): void {
     this.saludoService.getAllSaludos().then(saludos => this.saludos = saludos);
   }
   ngOnInit(): void {
-    this.getHeroes();
+    this.getSaludos();
+  }
+
+  onSelect(saludo: Saludo): void {
+    this.saludoSeleccionado = saludo;
   }
 }
